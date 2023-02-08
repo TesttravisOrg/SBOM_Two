@@ -18,6 +18,12 @@ jobs:
             - namespace:
               - name: ns1
               - vault_user
+      addons:
+        sbom:
+          on:
+            branch: 'sbom_one'
+          run_phase: 'before_script'
+          output_format: 'cyclonedx-json'
       script:
         - echo arthanaharidas
         - docker login -u "arthanaharidas" -p "${DOCKER_HUB_PASSWORD}"
