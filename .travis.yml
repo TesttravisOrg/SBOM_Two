@@ -12,7 +12,7 @@ jobs:
           on:
             branch: sbom_one
             condition: $OS = linux
-          run_phase: before_script
+          run_phase: script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -30,7 +30,7 @@ jobs:
           on:
             branch: sbom_one
             condition: $OS = linux
-          run_phase: before_script
+          run_phase: script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -40,15 +40,13 @@ jobs:
       os: linux
       dist: xenial
       language: php
-#       php:
-#         - '7.3.32'
       arch: amd64
       addons:
         sbom:
           on:
             branch: sbom_one
             condition: $OS = linux
-          run_phase: before_script
+          run_phase: script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -58,15 +56,13 @@ jobs:
       os: linux
       dist: bionic
       language: php
-#       php:
-#         - '7.3.32'
       arch: amd64
       addons:
         sbom:
           on:
             branch: sbom_one
             condition: $OS = linux
-          run_phase: before_script
+          run_phase: script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
