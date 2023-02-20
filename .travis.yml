@@ -15,7 +15,7 @@ jobs:
         - provider: releases
           edge: true
           file_glob: true
-          api_key: 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
+          api_key: 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
           file: python/**/*
           skip_cleanup: true
           on:
