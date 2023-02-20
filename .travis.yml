@@ -5,7 +5,7 @@ jobs:
       dist: focal
       language: php
       php:
-        - '8.2'
+        - '8.0.21'
       arch: amd64
       addons:
         sbom:
@@ -23,7 +23,7 @@ jobs:
       dist: jammy
       language: php
       php:
-        - '8.2'
+        - '8.0.21'
       arch: amd64
       addons:
         sbom:
