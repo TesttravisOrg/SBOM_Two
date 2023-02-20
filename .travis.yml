@@ -23,7 +23,7 @@ jobs:
       dist: jammy
       language: php
       php:
-        - '8.0.21'
+        - '8.2.0'
       arch: amd64
       addons:
         sbom:
