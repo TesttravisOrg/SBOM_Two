@@ -1,10 +1,9 @@
 jobs:
   include:
-    - os: linux
+    - name: Linux Focal PHP
+      os: linux
       dist: focal
       language: php
-      php:
-        - '7.3.32'
       arch: amd64
       addons:
         sbom:
@@ -17,11 +16,10 @@ jobs:
       script:
         - php hello_world.php
         
-    - os: linux
+    - name: Linux Jammy PHP
+      os: linux
       dist: jammy
       language: php
-      php:
-        - '7.3.32'
       arch: amd64
       addons:
         sbom:
@@ -34,11 +32,12 @@ jobs:
       script:
         - php hello_world.php
     
-    - os: linux
+    - name: Linux Xenial PHP
+      os: linux
       dist: xenial
       language: php
-      php:
-        - '7.3.32'
+#       php:
+#         - '7.3.32'
       arch: amd64
       addons:
         sbom:
@@ -51,11 +50,12 @@ jobs:
       script:
         - php hello_world.php
         
-    - os: linux
+    - name: Linux Bionic PHP
+      os: linux
       dist: bionic
       language: php
-      php:
-        - '7.3.32'
+#       php:
+#         - '7.3.32'
       arch: amd64
       addons:
         sbom:
@@ -68,18 +68,19 @@ jobs:
       script:
         - php hello_world.php
         
-    - os: windows
-      language: php
-      php:
-        - '7.3.32'
-      arch: amd64
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: before_script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - php hello_world.php
+#     - name: Windows PHP (skipping)
+#       os: windows
+#       language: php
+#       php:
+#         - '7.3.32'
+#       arch: amd64
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - php hello_world.php
