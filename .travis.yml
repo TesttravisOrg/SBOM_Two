@@ -388,7 +388,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: before_install
+          run_phase: after_failure
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
