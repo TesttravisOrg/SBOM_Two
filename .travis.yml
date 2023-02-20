@@ -4,6 +4,8 @@ jobs:
       os: linux
       dist: focal
       language: php
+      php:
+        - '8.2'
       arch: amd64
       addons:
         sbom:
@@ -20,6 +22,8 @@ jobs:
       os: linux
       dist: jammy
       language: php
+      php:
+        - '8.2'
       arch: amd64
       addons:
         sbom:
