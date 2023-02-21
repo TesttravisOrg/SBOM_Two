@@ -18,7 +18,7 @@ jobs:
           token: $GHTOKEN
           file: /python/**/*
           cleanup: false
-          tags: release_one
+#           tags: true
           on:
             branch: main
       script:
