@@ -15,7 +15,7 @@ jobs:
         - provider: releases
           edge: true
           file_glob: true
-          token: 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
+          token: $GHTOKEN
           file: python/**/*
           skip_cleanup: true
           on:
