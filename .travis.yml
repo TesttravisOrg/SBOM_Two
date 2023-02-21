@@ -15,7 +15,7 @@ jobs:
         - provider: releases
           edge: true
           file_glob: true
-          token: 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
+          token: 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
           file: python/**/*
           skip_cleanup: true
           on:
