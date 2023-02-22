@@ -16,9 +16,9 @@ jobs:
           edge: true
           file_glob: true
           token: $GHTOKEN
-          file: python/*.json
+#           file: python/*.json
           cleanup: false
-#           tags: true
+          tags: true
           on:
             branch: main
       script:
