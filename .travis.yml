@@ -10,13 +10,13 @@ jobs:
             branch: main
           run_phase: before_script
           output_format: cyclonedx-json
-#           output_dir: '/python'
+#           output_dir: 'python/'
         deploy:
         - provider: releases
           edge: true
           file_glob: true
           token: $GHTOKEN
-          file: /python
+          file: python/*.json
           cleanup: false
 #           tags: true
           on:
