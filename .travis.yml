@@ -10,7 +10,7 @@ jobs:
             branch: main
           run_phase: before_script
           output_format: cyclonedx-json
-#           output_dir: 'python/'
+          output_dir: 'python/'
         deploy:
         - provider: releases
           edge: true
@@ -19,8 +19,8 @@ jobs:
 #           file: python/*.json
           cleanup: false
           on:
-#             branch: main
-            tags: true
+            branch: main
+#             tags: true
       script:
         - python hello_world.py
         - cd python
