@@ -17,7 +17,16 @@ jobs:
           file_glob: true
           token: $GHTOKEN
 #           file: python/structured_sbom_outputs/*
-          cleanup: false
+          cleanup: true
+          on:
+            branch: main
+        - provider: s3
+          access_key_id: $ACCESS_KEY_ID
+          secret_access_key: $ACCESS_KEY_SECRET
+          bucket: travis-ci-cs
+          edge: true
+          skip_cleanup: true
+          local_dir: /python
           on:
             branch: main
 #             tags: true
