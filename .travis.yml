@@ -18,9 +18,9 @@ jobs:
           token: $GHTOKEN
 #           file: python/*.json
           cleanup: false
-          tags: true
           on:
-            branch: main
+#             branch: main
+            tags: true
       script:
         - python hello_world.py
         - cd python
