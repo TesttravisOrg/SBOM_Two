@@ -14,9 +14,9 @@ jobs:
         deploy:
         - provider: releases
           edge: true
-#           file_glob: true
+          file_glob: true
           token: $GHTOKEN
-          file: python/structured_sbom_outputs/*
+#           file: python/structured_sbom_outputs/*
           cleanup: false
           on:
             branch: main
