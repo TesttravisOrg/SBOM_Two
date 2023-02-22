@@ -16,7 +16,7 @@ jobs:
           edge: true
           file_glob: true
           token: $GHTOKEN
-          file: /**/*
+          file: /python
           cleanup: false
 #           tags: true
           on:
