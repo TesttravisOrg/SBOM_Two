@@ -95,7 +95,7 @@ jobs:
           run_phase: after_success
           output_format: cyclonedx-xml
           input_dir: '/java'
-          output_dir: 'java/'
+          output_dir: '/java'
         deploy:
         - provider: releases
           edge: true
@@ -115,9 +115,9 @@ jobs:
             branch: main
         mariadb: '10.0'
       script:
+        - cd java
         - javac hello_world.java
         - java HelloWorld
-        - cd java
 #     - name: Linux Jammy Java
 #       os: linux
 #       dist: jammy
