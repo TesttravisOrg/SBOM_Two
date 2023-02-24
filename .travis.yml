@@ -115,6 +115,7 @@ jobs:
       script:
         - javac hello_world.java
         - java HelloWorld
+        - cd java
 #     - name: Linux Jammy Java
 #       os: linux
 #       dist: jammy
@@ -193,6 +194,7 @@ jobs:
         mariadb: '10.0'
       script:
         - gem build ./ruby/hello_world.gemspec
+        - cd ruby
 #     - name: Linux Jammy Ruby
 #       os: linux
 #       dist: jammy
