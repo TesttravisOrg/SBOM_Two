@@ -10,6 +10,7 @@ jobs:
             branch: main
           run_phase: before_script
           output_format: cyclonedx-json
+          input_dir: '/python'
           output_dir: 'python/'
         deploy:
         - provider: releases
@@ -93,6 +94,7 @@ jobs:
             branch: main
           run_phase: after_success
           output_format: cyclonedx-xml
+          input_dir: '/java'
           output_dir: 'java/'
         deploy:
         - provider: releases
@@ -173,6 +175,7 @@ jobs:
 #             condition: $OS = linux
           run_phase: after_success
           output_format: cyclonedx-xml
+          input_dir: '/ruby'
           output_dir: 'ruby/'
         deploy:
         - provider: releases
@@ -250,6 +253,7 @@ jobs:
           run_phase: after_success
           output_format: cyclonedx-xml
           output_dir: 'go/'
+          input_dir: '/go'
         deploy:
         - provider: releases
           edge: true
@@ -329,6 +333,7 @@ jobs:
           run_phase: after_success
           output_format: cyclonedx-xml
           output_dir: 'node/'
+          input_dir: '/node'
         deploy:
         - provider: releases
           edge: true
