@@ -16,7 +16,6 @@ jobs:
           edge: true
           file_glob: true
           token: $GHTOKEN
-#           file: python/structured_sbom_outputs/*
           cleanup: true
           on:
             branch: main
@@ -84,21 +83,39 @@ jobs:
 #         - cd python
 #         - pip install -r requirements.txt
         
-#     - name: Linux Focal Java
-#       os: linux
-#       dist: focal
-#       language: java
-#       addons:
-#         sbom:
-#           on:
-#             branch: main
-#             condition: $OS = linux
-#           run_phase: after_success
-#           output_format: cyclonedx-xml
-#         mariadb: '10.0'
-#       script:
-#         - javac hello_world.java
-#         - java HelloWorld
+    - name: Linux Focal Java
+      os: linux
+      dist: focal
+      language: java
+      addons:
+        sbom:
+          on:
+            branch: main
+            condition: $OS = linux
+          run_phase: after_success
+          output_format: cyclonedx-xml
+          output_dir: 'java/'
+        deploy:
+        - provider: releases
+          edge: true
+          file_glob: true
+          token: $GHTOKEN
+          cleanup: true
+          on:
+            branch: main
+        - provider: s3
+          access_key_id: $ACCESS_KEY_ID
+          secret_access_key: $ACCESS_KEY_SECRET
+          bucket: "travis-ci-cs"
+          edge: true
+          skip_cleanup: true
+          upload_dir: 'java/'
+          on:
+            branch: main
+        mariadb: '10.0'
+      script:
+        - javac hello_world.java
+        - java HelloWorld
 #     - name: Linux Jammy Java
 #       os: linux
 #       dist: jammy
@@ -145,20 +162,38 @@ jobs:
 #         - javac hello_world.java
 #         - java HelloWorld
         
-#     - name: Linux Focal Ruby
-#       os: linux
-#       dist: focal
-#       language: ruby
-#       addons:
-#         sbom:
-#           on:
-#             branch: main
-#             condition: $OS = linux
-#           run_phase: after_success
-#           output_format: cyclonedx-xml
-#         mariadb: '10.0'
-#       script:
-#         - gem build ./ruby/hello_world.gemspec
+    - name: Linux Focal Ruby
+      os: linux
+      dist: focal
+      language: ruby
+      addons:
+        sbom:
+          on:
+            branch: main
+            condition: $OS = linux
+          run_phase: after_success
+          output_format: cyclonedx-xml
+          output_dir: 'ruby/'
+        deploy:
+        - provider: releases
+          edge: true
+          file_glob: true
+          token: $GHTOKEN
+          cleanup: true
+          on:
+            branch: main
+        - provider: s3
+          access_key_id: $ACCESS_KEY_ID
+          secret_access_key: $ACCESS_KEY_SECRET
+          bucket: "travis-ci-cs"
+          edge: true
+          skip_cleanup: true
+          upload_dir: 'ruby/'
+          on:
+            branch: main
+        mariadb: '10.0'
+      script:
+        - gem build ./ruby/hello_world.gemspec
 #     - name: Linux Jammy Ruby
 #       os: linux
 #       dist: jammy
@@ -202,21 +237,39 @@ jobs:
 #       script:
 #         - gem build ./ruby/hello_world.gemspec
         
-#     - name: Linux Focal Go
-#       os: linux
-#       dist: focal
-#       language: go
-#       addons:
-#         sbom:
-#           on:
-#             branch: main
-#             condition: $OS = linux
-#           run_phase: after_success
-#           output_format: cyclonedx-xml
-#         mariadb: '10.0'
-#       script:
-#         - cd go
-#         - go build
+    - name: Linux Focal Go
+      os: linux
+      dist: focal
+      language: go
+      addons:
+        sbom:
+          on:
+            branch: main
+            condition: $OS = linux
+          run_phase: after_success
+          output_format: cyclonedx-xml
+          output_dir: 'go/'
+        deploy:
+        - provider: releases
+          edge: true
+          file_glob: true
+          token: $GHTOKEN
+          cleanup: true
+          on:
+            branch: main
+        - provider: s3
+          access_key_id: $ACCESS_KEY_ID
+          secret_access_key: $ACCESS_KEY_SECRET
+          bucket: "travis-ci-cs"
+          edge: true
+          skip_cleanup: true
+          upload_dir: 'go/'
+          on:
+            branch: main
+        mariadb: '10.0'
+      script:
+        - cd go
+        - go build
 #     - name: Linux Jammy Go
 #       os: linux
 #       dist: jammy
@@ -263,22 +316,40 @@ jobs:
 #         - cd go
 #         - go build
         
-#     - name: Linux Focal Node JS
-#       os: linux
-#       dist: focal
-#       language: node_js
-#       addons:
-#         sbom:
-#           on:
-#             branch: main
-#             condition: $OS = linux
-#           run_phase: after_success
-#           output_format: cyclonedx-xml
-#         mariadb: '10.0'
-#       script:
-#         - cd node
-#         - npm install
-#         - node hello_world.js
+    - name: Linux Focal Node JS
+      os: linux
+      dist: focal
+      language: node_js
+      addons:
+        sbom:
+          on:
+            branch: main
+            condition: $OS = linux
+          run_phase: after_success
+          output_format: cyclonedx-xml
+          output_dir: 'node/'
+        deploy:
+        - provider: releases
+          edge: true
+          file_glob: true
+          token: $GHTOKEN
+          cleanup: true
+          on:
+            branch: main
+        - provider: s3
+          access_key_id: $ACCESS_KEY_ID
+          secret_access_key: $ACCESS_KEY_SECRET
+          bucket: "travis-ci-cs"
+          edge: true
+          skip_cleanup: true
+          upload_dir: 'node/'
+          on:
+            branch: main
+        mariadb: '10.0'
+      script:
+        - cd node
+        - npm install
+        - node hello_world.js
 #     - name: Linux Jammy Node JS
 #       os: linux
 #       dist: jammy
