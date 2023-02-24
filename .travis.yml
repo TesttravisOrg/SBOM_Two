@@ -91,7 +91,6 @@ jobs:
         sbom:
           on:
             branch: main
-            condition: $OS = linux
           run_phase: after_success
           output_format: cyclonedx-xml
           output_dir: 'java/'
@@ -170,7 +169,7 @@ jobs:
         sbom:
           on:
             branch: main
-            condition: $OS = linux
+#             condition: $OS = linux
           run_phase: after_success
           output_format: cyclonedx-xml
           output_dir: 'ruby/'
@@ -245,7 +244,7 @@ jobs:
         sbom:
           on:
             branch: main
-            condition: $OS = linux
+#             condition: $OS = linux
           run_phase: after_success
           output_format: cyclonedx-xml
           output_dir: 'go/'
@@ -324,7 +323,7 @@ jobs:
         sbom:
           on:
             branch: main
-            condition: $OS = linux
+#             condition: $OS = linux
           run_phase: after_success
           output_format: cyclonedx-xml
           output_dir: 'node/'
