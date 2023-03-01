@@ -113,9 +113,10 @@ jobs:
             branch: main
         mariadb: '10.0'
       script:
+        - cd java
         - javac hello_world.java
         - java HelloWorld
-        - cd java
+        
 #     - name: Linux Jammy Java
 #       os: linux
 #       dist: jammy
