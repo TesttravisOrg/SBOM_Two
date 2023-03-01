@@ -10,16 +10,15 @@ jobs:
             branch: main
           run_phase: before_script
           output_format: cyclonedx-json
-          input_dir: '/python'
-          output_dir: '/python'
+          output_dir: 'python/'
         deploy:
-#         - provider: releases
-#           edge: true
-#           file_glob: true
-#           token: $GHTOKEN
-#           cleanup: true
-#           on:
-#             branch: main
+        - provider: releases
+          edge: true
+          file_glob: true
+          token: $GHTOKEN
+          cleanup: true
+          on:
+            branch: main
         - provider: s3
           access_key_id: $ACCESS_KEY_ID
           secret_access_key: $ACCESS_KEY_SECRET
@@ -94,16 +93,15 @@ jobs:
             branch: main
           run_phase: after_success
           output_format: cyclonedx-xml
-          input_dir: '/java'
-          output_dir: '/java'
+          output_dir: 'java/'
         deploy:
-#         - provider: releases
-#           edge: true
-#           file_glob: true
-#           token: $GHTOKEN
-#           cleanup: true
-#           on:
-#             branch: main
+        - provider: releases
+          edge: true
+          file_glob: true
+          token: $GHTOKEN
+          cleanup: true
+          on:
+            branch: main
         - provider: s3
           access_key_id: $ACCESS_KEY_ID
           secret_access_key: $ACCESS_KEY_SECRET
@@ -115,9 +113,9 @@ jobs:
             branch: main
         mariadb: '10.0'
       script:
-        - cd java
         - javac hello_world.java
         - java HelloWorld
+        - cd java
 #     - name: Linux Jammy Java
 #       os: linux
 #       dist: jammy
@@ -175,16 +173,15 @@ jobs:
 #             condition: $OS = linux
           run_phase: after_success
           output_format: cyclonedx-xml
-          input_dir: '/ruby'
           output_dir: 'ruby/'
         deploy:
-#         - provider: releases
-#           edge: true
-#           file_glob: true
-#           token: $GHTOKEN
-#           cleanup: true
-#           on:
-#             branch: main
+        - provider: releases
+          edge: true
+          file_glob: true
+          token: $GHTOKEN
+          cleanup: true
+          on:
+            branch: main
         - provider: s3
           access_key_id: $ACCESS_KEY_ID
           secret_access_key: $ACCESS_KEY_SECRET
@@ -253,15 +250,14 @@ jobs:
           run_phase: after_success
           output_format: cyclonedx-xml
           output_dir: 'go/'
-          input_dir: '/go'
         deploy:
-#         - provider: releases
-#           edge: true
-#           file_glob: true
-#           token: $GHTOKEN
-#           cleanup: true
-#           on:
-#             branch: main
+        - provider: releases
+          edge: true
+          file_glob: true
+          token: $GHTOKEN
+          cleanup: true
+          on:
+            branch: main
         - provider: s3
           access_key_id: $ACCESS_KEY_ID
           secret_access_key: $ACCESS_KEY_SECRET
@@ -333,15 +329,14 @@ jobs:
           run_phase: after_success
           output_format: cyclonedx-xml
           output_dir: 'node/'
-          input_dir: '/node'
         deploy:
-#         - provider: releases
-#           edge: true
-#           file_glob: true
-#           token: $GHTOKEN
-#           cleanup: true
-#           on:
-#             branch: main
+        - provider: releases
+          edge: true
+          file_glob: true
+          token: $GHTOKEN
+          cleanup: true
+          on:
+            branch: main
         - provider: s3
           access_key_id: $ACCESS_KEY_ID
           secret_access_key: $ACCESS_KEY_SECRET
