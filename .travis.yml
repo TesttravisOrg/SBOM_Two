@@ -29,8 +29,9 @@ jobs:
           on:
             branch: main
       script:
-        - python hello_world.py
         - cd python
+        - python hello_world.py
+        
         - pip install -r requirements.txt
 #     - name: Linux Jammy Python
 #       os: linux
@@ -194,8 +195,9 @@ jobs:
             branch: main
         mariadb: '10.0'
       script:
-        - gem build ./ruby/hello_world.gemspec
         - cd ruby
+        - gem build ./ruby/hello_world.gemspec
+        
 #     - name: Linux Jammy Ruby
 #       os: linux
 #       dist: jammy
